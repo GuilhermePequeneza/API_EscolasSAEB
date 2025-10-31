@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj": {}
+    "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj": {
+    "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
+        "projectUniqueName": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
         "projectName": "IdebAPI",
-        "projectPath": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
+        "projectPath": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
         "packagesPath": "C:\\Users\\T-Gamer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\obj\\",
+        "outputPath": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.66, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[8.1.0, )"

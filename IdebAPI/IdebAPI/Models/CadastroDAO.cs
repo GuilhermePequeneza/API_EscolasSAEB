@@ -1,13 +1,7 @@
 ﻿
 using Cadastro.Controllers;
 using Cadastro.ModelView;
-using IdebAPI.Models;
-using Microsoft.Extensions.FileSystemGlobbing.Internal;
-using MySql.Data.MySqlClient; // Mudança: usar MySql em vez de SqlClient
-using OfficeOpenXml;
-using System.ComponentModel.DataAnnotations;
-using System.Configuration;
-using System.Globalization;
+using MySql.Data.MySqlClient; 
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -168,5 +162,4 @@ namespace Cadastro.Models
     }
 }
 
-//inserir dados
-//ponte pro front
+

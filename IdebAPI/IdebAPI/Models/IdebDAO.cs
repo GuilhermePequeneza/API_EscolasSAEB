@@ -1,18 +1,32 @@
 ﻿using OfficeOpenXml;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace IdebAPI.Models
 {
-    // Interface para o serviço (facilita testes)
+    // Interface para o serviço
     public interface IIdebService
     {
-        Task<List<EscolaIdeb>> LerTodasPlanilhasAsync();
-        List<EscolaIdeb> FiltrarEscolas(List<EscolaIdeb> escolas, string uf = null, string municipio = null, string rede = null, string tipoEnsino = null);
+        Task<List<EscolaIdeb>> ProcessarDadosAsync(int modo, string uf = null, string municipio = null, string rede = null, string tipoEnsino = null);
     }
 
-    // Serviço para leitura das planilhas
+    // DTO temporário para leitura das planilhas
+    internal class EscolaTemp
+    {
+        public string SiglaUF { get; set; } = string.Empty;
+        public string NomeMunicipio { get; set; } = string.Empty;
+        public string NomeEscola { get; set; } = string.Empty;
+        public string Rede { get; set; } = string.Empty;
+        public decimal? Ideb { get; set; }
+        public string TipoEnsino { get; set; } = string.Empty;
+        public int AnoReferencia { get; set; }
+    }
+
+    // Serviço para leitura das planilhas e gerenciamento do banco
     public class IdebService : IIdebService
     {
         private readonly string _basePath;
+        private readonly string _connectionString;
         private readonly ILogger<IdebService> _logger;
 
         private static readonly Dictionary<string, string> PLANILHAS_CONFIG = new()
@@ -46,14 +60,37 @@ namespace IdebAPI.Models
         public IdebService(IConfiguration configuration, ILogger<IdebService> logger)
         {
             _basePath = configuration["IdebService:BasePath"] ?? "PlanilhasEscolas";
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
             _logger = logger;
-
         }
 
-        public async Task<List<EscolaIdeb>> LerTodasPlanilhasAsync()
+        public async Task<List<EscolaIdeb>> ProcessarDadosAsync(
+            int modo,
+            string uf = null,
+            string municipio = null,
+            string rede = null,
+            string tipoEnsino = null)
         {
-            var todasEscolas = new List<EscolaIdeb>();
-            var tasks = new List<Task<List<EscolaIdeb>>>();
+            if (modo == 1)
+            {
+                _logger.LogInformation("Modo 1: Lendo planilhas e inserindo no banco de dados");
+
+                var escolasTemp = await LerTodasPlanilhasAsync();
+                await InserirEscolasConsolidadasAsync(escolasTemp);
+
+                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino);
+            }
+            else
+            {
+                _logger.LogInformation("Modo 0: Consultando dados do banco de dados");
+                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino);
+            }
+        }
+
+        private async Task<List<EscolaTemp>> LerTodasPlanilhasAsync()
+        {
+            var todasEscolas = new List<EscolaTemp>();
+            var tasks = new List<Task<List<EscolaTemp>>>();
 
             foreach (var planilha in PLANILHAS_CONFIG)
             {
@@ -76,13 +113,13 @@ namespace IdebAPI.Models
                 todasEscolas.AddRange(escolas);
             }
 
-            _logger.LogInformation("Total de escolas carregadas: {Total}", todasEscolas.Count);
+            _logger.LogInformation("Total de registros carregados das planilhas: {Total}", todasEscolas.Count);
             return todasEscolas;
         }
 
-        private async Task<List<EscolaIdeb>> LerPlanilhaAsync(string caminhoArquivo, string tipoEnsino)
+        private async Task<List<EscolaTemp>> LerPlanilhaAsync(string caminhoArquivo, string tipoEnsino)
         {
-            var escolas = new List<EscolaIdeb>();
+            var escolas = new List<EscolaTemp>();
 
             try
             {
@@ -110,7 +147,7 @@ namespace IdebAPI.Models
 
                         var (ideb, anoReferencia) = BuscarIdebMaisRecente(worksheet, linha, tipoEnsino);
 
-                        var escola = new EscolaIdeb
+                        var escola = new EscolaTemp
                         {
                             SiglaUF = worksheet.Cells[linha, 1].Value?.ToString()?.Trim() ?? string.Empty,
                             NomeMunicipio = worksheet.Cells[linha, 3].Value?.ToString()?.Trim() ?? string.Empty,
@@ -125,12 +162,12 @@ namespace IdebAPI.Models
                     }
                 });
 
-                _logger.LogInformation("Carregadas {Count} escolas do arquivo {Arquivo}", escolas.Count, Path.GetFileName(caminhoArquivo));
+                _logger.LogInformation("Carregadas {Count} registros do arquivo {Arquivo}", escolas.Count, Path.GetFileName(caminhoArquivo));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao ler arquivo {Arquivo}", caminhoArquivo);
-                throw; // Re-throw para que o controller possa tratar
+                throw;
             }
 
             return escolas;
@@ -159,25 +196,209 @@ namespace IdebAPI.Models
             return (null, 0);
         }
 
-        public List<EscolaIdeb> FiltrarEscolas(List<EscolaIdeb> escolas, string uf = null, string municipio = null, string rede = null, string tipoEnsino = null)
+        private async Task InserirEscolasConsolidadasAsync(List<EscolaTemp> escolasTemp)
         {
-            if (escolas == null) return new List<EscolaIdeb>();
+            if (escolasTemp == null || !escolasTemp.Any())
+            {
+                _logger.LogWarning("Nenhuma escola para inserir no banco de dados");
+                return;
+            }
 
-            var query = escolas.AsQueryable();
+            using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            using var transaction = await connection.BeginTransactionAsync();
+
+            try
+            {
+                // Limpa a tabela antes de inserir novos dados
+                using (var cmdTruncate = new MySqlCommand("TRUNCATE TABLE Escolas", connection, transaction as MySqlTransaction))
+                {
+                    await cmdTruncate.ExecuteNonQueryAsync();
+                }
+                _logger.LogInformation("Tabela Escolas limpa com sucesso");
+
+                
+                var sql = @"
+                    INSERT INTO Escolas (
+                        NomeEscola, Rede, SiglaUF, NomeMunicipio,
+                        SNAnosIniciais, IdebAnosIniciais, AnoReferenciaAnosIniciais,
+                        SNAnosFinais, IdebAnosFinais, AnoReferenciaAnosFinais,
+                        SNEnsinoMedio, IdebEnsinoMedio, AnoReferenciaEnsinoMedio
+                    ) VALUES (
+                        @NomeEscola, @Rede, @SiglaUF, @NomeMunicipio,
+                        @SNAnosIniciais, @IdebAnosIniciais, @AnoReferenciaAnosIniciais,
+                        @SNAnosFinais, @IdebAnosFinais, @AnoReferenciaAnosFinais,
+                        @SNEnsinoMedio, @IdebEnsinoMedio, @AnoReferenciaEnsinoMedio
+                    )
+                    ON DUPLICATE KEY UPDATE
+                        Rede = COALESCE(VALUES(Rede), Rede),
+                        
+                        -- Anos Iniciais
+                        SNAnosIniciais = SNAnosIniciais | VALUES(SNAnosIniciais),
+                        IdebAnosIniciais = CASE 
+                            WHEN VALUES(SNAnosIniciais) = 1 AND (IdebAnosIniciais IS NULL OR VALUES(IdebAnosIniciais) > IdebAnosIniciais) 
+                            THEN VALUES(IdebAnosIniciais) 
+                            ELSE IdebAnosIniciais 
+                        END,
+                        AnoReferenciaAnosIniciais = CASE 
+                            WHEN VALUES(SNAnosIniciais) = 1 AND (AnoReferenciaAnosIniciais IS NULL OR VALUES(IdebAnosIniciais) > IdebAnosIniciais) 
+                            THEN VALUES(AnoReferenciaAnosIniciais) 
+                            ELSE AnoReferenciaAnosIniciais 
+                        END,
+                        
+                        -- Anos Finais
+                        SNAnosFinais = SNAnosFinais | VALUES(SNAnosFinais),
+                        IdebAnosFinais = CASE 
+                            WHEN VALUES(SNAnosFinais) = 1 AND (IdebAnosFinais IS NULL OR VALUES(IdebAnosFinais) > IdebAnosFinais) 
+                            THEN VALUES(IdebAnosFinais) 
+                            ELSE IdebAnosFinais 
+                        END,
+                        AnoReferenciaAnosFinais = CASE 
+                            WHEN VALUES(SNAnosFinais) = 1 AND (AnoReferenciaAnosFinais IS NULL OR VALUES(IdebAnosFinais) > IdebAnosFinais) 
+                            THEN VALUES(AnoReferenciaAnosFinais) 
+                            ELSE AnoReferenciaAnosFinais 
+                        END,
+                        
+                        -- Ensino Médio
+                        SNEnsinoMedio = SNEnsinoMedio | VALUES(SNEnsinoMedio),
+                        IdebEnsinoMedio = CASE 
+                            WHEN VALUES(SNEnsinoMedio) = 1 AND (IdebEnsinoMedio IS NULL OR VALUES(IdebEnsinoMedio) > IdebEnsinoMedio) 
+                            THEN VALUES(IdebEnsinoMedio) 
+                            ELSE IdebEnsinoMedio 
+                        END,
+                        AnoReferenciaEnsinoMedio = CASE 
+                            WHEN VALUES(SNEnsinoMedio) = 1 AND (AnoReferenciaEnsinoMedio IS NULL OR VALUES(IdebEnsinoMedio) > IdebEnsinoMedio) 
+                            THEN VALUES(AnoReferenciaEnsinoMedio) 
+                            ELSE AnoReferenciaEnsinoMedio 
+                        END";
+
+                int totalProcessado = 0;
+
+                foreach (var escolaTemp in escolasTemp)
+                {
+                    using var cmd = new MySqlCommand(sql, connection, transaction as MySqlTransaction);
+
+                    cmd.Parameters.AddWithValue("@NomeEscola", escolaTemp.NomeEscola);
+                    cmd.Parameters.AddWithValue("@Rede", escolaTemp.Rede);
+                    cmd.Parameters.AddWithValue("@SiglaUF", escolaTemp.SiglaUF);
+                    cmd.Parameters.AddWithValue("@NomeMunicipio", escolaTemp.NomeMunicipio);
+
+                    // Define os valores baseado no tipo de ensino
+                    bool isAnosIniciais = escolaTemp.TipoEnsino == "Anos Iniciais";
+                    bool isAnosFinais = escolaTemp.TipoEnsino == "Anos Finais";
+                    bool isEnsinoMedio = escolaTemp.TipoEnsino == "Ensino Médio";
+
+                    cmd.Parameters.AddWithValue("@SNAnosIniciais", isAnosIniciais);
+                    cmd.Parameters.AddWithValue("@IdebAnosIniciais", isAnosIniciais && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosIniciais", isAnosIniciais && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@SNAnosFinais", isAnosFinais);
+                    cmd.Parameters.AddWithValue("@IdebAnosFinais", isAnosFinais && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosFinais", isAnosFinais && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@SNEnsinoMedio", isEnsinoMedio);
+                    cmd.Parameters.AddWithValue("@IdebEnsinoMedio", isEnsinoMedio && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaEnsinoMedio", isEnsinoMedio && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+
+                    await cmd.ExecuteNonQueryAsync();
+                    totalProcessado++;
+                }
+
+                await transaction.CommitAsync();
+
+                _logger.LogInformation("{Count} registros processados e consolidados no banco de dados", totalProcessado);
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, "Erro ao inserir escolas no banco de dados");
+                throw;
+            }
+        }
+
+        private async Task<List<EscolaIdeb>> ConsultarEscolasAsync(
+            string uf = null,
+            string municipio = null,
+            string rede = null,
+            string tipoEnsino = null)
+        {
+            using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            var sql = @"SELECT ID, NomeEscola, Rede, SiglaUF, NomeMunicipio,
+                        SNAnosIniciais, IdebAnosIniciais, AnoReferenciaAnosIniciais,
+                        SNAnosFinais, IdebAnosFinais, AnoReferenciaAnosFinais,
+                        SNEnsinoMedio, IdebEnsinoMedio, AnoReferenciaEnsinoMedio,
+                        DataCriacao, DataAtualizacao 
+                        FROM Escolas WHERE 1=1";
+            var parametros = new List<MySqlParameter>();
 
             if (!string.IsNullOrWhiteSpace(uf))
-                query = query.Where(e => e.SiglaUF.Contains(uf, StringComparison.OrdinalIgnoreCase));
+            {
+                sql += " AND SiglaUF = @Uf";
+                parametros.Add(new MySqlParameter("@Uf", uf.ToUpper()));
+            }
 
             if (!string.IsNullOrWhiteSpace(municipio))
-                query = query.Where(e => e.NomeMunicipio.Contains(municipio, StringComparison.OrdinalIgnoreCase));
+            {
+                sql += " AND NomeMunicipio LIKE @Municipio";
+                parametros.Add(new MySqlParameter("@Municipio", $"%{municipio}%"));
+            }
 
             if (!string.IsNullOrWhiteSpace(rede))
-                query = query.Where(e => e.Rede.Contains(rede, StringComparison.OrdinalIgnoreCase));
+            {
+                sql += " AND Rede LIKE @Rede";
+                parametros.Add(new MySqlParameter("@Rede", $"%{rede}%"));
+            }
 
             if (!string.IsNullOrWhiteSpace(tipoEnsino))
-                query = query.Where(e => e.TipoEnsino.Contains(tipoEnsino, StringComparison.OrdinalIgnoreCase));
+            {
+                sql += tipoEnsino.ToLower() switch
+                {
+                    var t when t.Contains("inicial") => " AND SNAnosIniciais = 1",
+                    var t when t.Contains("finais") || t.Contains("final") => " AND SNAnosFinais = 1",
+                    var t when t.Contains("médio") || t.Contains("medio") => " AND SNEnsinoMedio = 1",
+                    _ => ""
+                };
+            }
 
-            return query.ToList();
+            using var cmd = new MySqlCommand(sql, connection);
+            cmd.Parameters.AddRange(parametros.ToArray());
+
+            var escolas = new List<EscolaIdeb>();
+
+            using var reader = await cmd.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                escolas.Add(new EscolaIdeb
+                {
+                    ID = reader.GetInt32("ID"),
+                    NomeEscola = reader.IsDBNull(reader.GetOrdinal("NomeEscola")) ? string.Empty : reader.GetString("NomeEscola"),
+                    Rede = reader.IsDBNull(reader.GetOrdinal("Rede")) ? string.Empty : reader.GetString("Rede"),
+                    SiglaUF = reader.GetString("SiglaUF"),
+                    NomeMunicipio = reader.IsDBNull(reader.GetOrdinal("NomeMunicipio")) ? string.Empty : reader.GetString("NomeMunicipio"),
+
+                    SNAnosIniciais = reader.GetBoolean("SNAnosIniciais"),
+                    IdebAnosIniciais = reader.IsDBNull(reader.GetOrdinal("IdebAnosIniciais")) ? null : reader.GetDecimal("IdebAnosIniciais"),
+                    AnoReferenciaAnosIniciais = reader.IsDBNull(reader.GetOrdinal("AnoReferenciaAnosIniciais")) ? null : reader.GetInt32("AnoReferenciaAnosIniciais"),
+
+                    SNAnosFinais = reader.GetBoolean("SNAnosFinais"),
+                    IdebAnosFinais = reader.IsDBNull(reader.GetOrdinal("IdebAnosFinais")) ? null : reader.GetDecimal("IdebAnosFinais"),
+                    AnoReferenciaAnosFinais = reader.IsDBNull(reader.GetOrdinal("AnoReferenciaAnosFinais")) ? null : reader.GetInt32("AnoReferenciaAnosFinais"),
+
+                    SNEnsinoMedio = reader.GetBoolean("SNEnsinoMedio"),
+                    IdebEnsinoMedio = reader.IsDBNull(reader.GetOrdinal("IdebEnsinoMedio")) ? null : reader.GetDecimal("IdebEnsinoMedio"),
+                    AnoReferenciaEnsinoMedio = reader.IsDBNull(reader.GetOrdinal("AnoReferenciaEnsinoMedio")) ? null : reader.GetInt32("AnoReferenciaEnsinoMedio"),
+
+                    DataCriacao = reader.GetDateTime("DataCriacao"),
+                    DataAtualizacao = reader.GetDateTime("DataAtualizacao")
+                });
+            }
+
+            _logger.LogInformation("Consulta retornou {Count} escolas do banco de dados", escolas.Count);
+
+            return escolas;
         }
     }
 }

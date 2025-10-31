@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-
+﻿
 namespace Cadastro.Models
 {
     public class Cadastro

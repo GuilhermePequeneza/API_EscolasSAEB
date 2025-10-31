@@ -1,42 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\",
+  "WorkspaceRootPath": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\models\\idebdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\idebdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\idebdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\controllers\\cadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\controllers\\cadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\modelview\\idebmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\modelview\\idebmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\modelview\\idebmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|c:\\users\\t-gamer\\source\\repos\\idebapi\\idebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,116 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IdebDAO.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\IdebDAO.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\Models\\IdebDAO.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\IdebDAO.cs",
-              "RelativeToolTip": "IdebAPI\\Models\\IdebDAO.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAwwC0AAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T00:04:56.53Z"
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "IdebAPI\\appsettings.json",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\appsettings.json",
+              "RelativeToolTip": "IdebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-30T21:15:01.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "IdebAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\appsettings.json",
-              "RelativeToolTip": "IdebAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-09T21:11:13.521Z"
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "IdebAPI\\Program.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Program.cs",
+              "RelativeToolTip": "IdebAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T22:24:40.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CadastroDAO.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\CadastroDAO.cs",
+              "RelativeDocumentMoniker": "IdebAPI\\Models\\CadastroDAO.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\CadastroDAO.cs",
+              "RelativeToolTip": "IdebAPI\\Models\\CadastroDAO.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAqwIYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T22:28:14.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Program.cs",
-              "RelativeToolTip": "IdebAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Title": "IdebModelView.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
+              "RelativeDocumentMoniker": "IdebAPI\\ModelView\\IdebModelView.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
+              "RelativeToolTip": "IdebAPI\\ModelView\\IdebModelView.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwCYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T21:11:07.323Z"
+              "WhenOpened": "2025-10-30T20:24:43.753Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "IdebController.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Controllers\\IdebController.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
               "RelativeToolTip": "IdebAPI\\Controllers\\IdebController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAQwKsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T23:16:53.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IdebModelView.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\ModelView\\IdebModelView.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
-              "RelativeToolTip": "IdebAPI\\ModelView\\IdebModelView.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T23:32:26.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CadastroModelView.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\ModelView\\CadastroModelView.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\ModelView\\CadastroModelView.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\ModelView\\CadastroModelView.cs",
-              "RelativeToolTip": "IdebAPI\\ModelView\\CadastroModelView.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:16.515Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CadastroModel.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\CadastroModel.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\Models\\CadastroModel.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\CadastroModel.cs",
-              "RelativeToolTip": "IdebAPI\\Models\\CadastroModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:15.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CadastroDAO.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\CadastroDAO.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\Models\\CadastroDAO.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Models\\CadastroDAO.cs",
-              "RelativeToolTip": "IdebAPI\\Models\\CadastroDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:14.124Z",
+              "WhenOpened": "2025-10-30T20:17:25.503Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CadastroController.cs",
-              "DocumentMoniker": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Controllers\\CadastroController.cs",
-              "RelativeDocumentMoniker": "IdebAPI\\Controllers\\CadastroController.cs",
-              "ToolTip": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\Controllers\\CadastroController.cs",
-              "RelativeToolTip": "IdebAPI\\Controllers\\CadastroController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwB8AAAAfAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IdebDAO.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\IdebDAO.cs",
+              "RelativeDocumentMoniker": "IdebAPI\\Models\\IdebDAO.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\IdebDAO.cs",
+              "RelativeToolTip": "IdebAPI\\Models\\IdebDAO.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:12.74Z"
+              "WhenOpened": "2025-10-28T22:04:25.753Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -52,6 +52,19 @@
           }
         }
       },
+      "Dapper/2.1.66": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "EPPlus/8.1.0": {
         "type": "package",
         "dependencies": {
@@ -1350,6 +1363,25 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
+      ]
+    },
+    "Dapper/2.1.66": {
+      "sha512": "/q77jUgDOS+bzkmk3Vy9SiWMaetTw+NOoPAV0xPBsGVAyljd5S6P+4RUW7R3ZUGGr9lDRyPKgAMj2UAOwvqZYw==",
+      "type": "package",
+      "path": "dapper/2.1.66",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.1.66.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net8.0/Dapper.dll",
+        "lib/net8.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml",
+        "readme.md"
       ]
     },
     "EPPlus/8.1.0": {
@@ -3788,6 +3820,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Dapper >= 2.1.66",
       "EPPlus >= 8.1.0",
       "Microsoft.Data.SqlClient >= 6.1.1",
       "Microsoft.DotNet.ILCompiler >= 8.0.19",
@@ -3803,11 +3836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
+      "projectUniqueName": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
       "projectName": "IdebAPI",
-      "projectPath": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
+      "projectPath": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\IdebAPI.csproj",
       "packagesPath": "C:\\Users\\T-Gamer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\T-Gamer\\source\\repos\\IdebAPI\\IdebAPI\\obj\\",
+      "outputPath": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3846,6 +3879,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Dapper": {
+            "target": "Package",
+            "version": "[2.1.66, )"
+          },
           "EPPlus": {
             "target": "Package",
             "version": "[8.1.0, )"
