@@ -11,22 +11,31 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           // Substitua pela URL do seu front-end React. 
-                          // A porta 3000 é a padrão do create-react-app.
-                          policy.WithOrigins("http://localhost:3000")
+                          // A porta 3000 ï¿½ a padrï¿½o do create-react-app.
+                          policy.WithOrigins("https://escolafinder.up.railway.app")
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                       });
 });
 
+// Pegue a string de conexÃ£o do Railway
+var connectionString = Environment.GetEnvironmentVariable("mysql-c2ad.railway.internal:3306_ferrovia");
+
+// Se nÃ£o estiver no Railway (rodando local), pegue do appsettings.json
+if (string.IsNullOrEmpty(connectionString))
+{
+    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+}
+
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // Configurar para usar reflexão ao invés de source generation
+        // Configurar para usar reflexï¿½o ao invï¿½s de source generation
         options.JsonSerializerOptions.TypeInfoResolverChain.Clear();
         options.JsonSerializerOptions.TypeInfoResolverChain.Add(new DefaultJsonTypeInfoResolver());
 
-        // Opcional: configurações adicionais
+        // Opcional: configuraï¿½ï¿½es adicionais
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         options.JsonSerializerOptions.WriteIndented = true;
     });
