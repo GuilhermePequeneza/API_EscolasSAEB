@@ -10,32 +10,44 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllowReactApp",
                       policy =>
                       {
-                          // Substitua pela URL do seu front-end React. 
-                          // A porta 3000 � a padr�o do create-react-app.
-                          policy.WithOrigins("https://escolafinder.up.railway.app")
+                          // Substitua pela URL do seu front-end React.
+                          // Se o seu frontend estiver em 'courageous-nurturing-production-xxxx.up.railway.app'
+                          // e/ou no domínio personalizado 'escolafinder.com', adicione-os aqui.
+                          policy.WithOrigins(
+                              "https://escolafinder.up.railway.app", // Provável URL do seu FRONTEND
+                              "https://courageous-nurturing-production-xxxx.up.railway.app", // Exemplo, verifique o seu
+                              "https://escolafinder.com", // Seu domínio personalizado do FRONTEND
+                              "http://localhost:3000", // Para desenvolvimento local do frontend
+                              "http://localhost:5173" // Para desenvolvimento local do frontend (Vite)
+                          )
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                       });
 });
 
 // Pegue a string de conexão do Railway
-var connectionString = Environment.GetEnvironmentVariable("mysql-c2ad.railway.internal:3306_ferrovia");
-
-// Se não estiver no Railway (rodando local), pegue do appsettings.json
+// Certifique-se de que a variável de ambiente está correta,
+// 'mysql-c2ad.railway.internal:3306_ferrovia' parece um nome de variável de ambiente,
+// mas a string de conexão real seria algo como "Server=mysql-c2ad.railway.internal;Port=3306;Database=seu_db;Uid=seu_user;Pwd=sua_senha;"
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL"); // Use um nome mais comum ou o que o Railway define para seu DB
 if (string.IsNullOrEmpty(connectionString))
 {
+    // Se não estiver no Railway (rodando local), pegue do appsettings.json
     connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 }
+
+// --- ADICIONE ESTA PARTE PARA CONFIGURAR A PORTA DO KESTREL ---
+// Configurar Kestrel para ouvir na porta do Railway
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080"; // Fallback para 8080 localmente
+builder.WebHost.UseUrls($"http://*:{port}"); // Importante: Use HTTP internamente no Railway
+// -------------------------------------------------------------
 
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // Configurar para usar reflex�o ao inv�s de source generation
         options.JsonSerializerOptions.TypeInfoResolverChain.Clear();
         options.JsonSerializerOptions.TypeInfoResolverChain.Add(new DefaultJsonTypeInfoResolver());
-
-        // Opcional: configura��es adicionais
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         options.JsonSerializerOptions.WriteIndented = true;
     });
@@ -43,7 +55,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IdebAPI.Models.IIdebService, IdebAPI.Models.IdebService>();
-builder.Services.AddScoped<Cadastro.Models.ICadastroDAO, Cadastro.Models.CadastroDAO>(); 
+builder.Services.AddScoped<Cadastro.Models.ICadastroDAO, Cadastro.Models.CadastroDAO>();
 
 var app = builder.Build();
 
@@ -54,8 +66,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    // Em produção, desative ou adapte o redirecionamento HTTPS.
+    // O Railway já lida com HTTPS, então seu app deve ouvir HTTP internamente.
+    // Remova ou comente app.UseHttpsRedirection()
+    // app.UseHttpsRedirection(); // <--- COMENTE OU REMOVA ESTA LINHA EM PRODUÇÃO
+}
 
-app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
 app.UseAuthorization();
 app.MapControllers();
