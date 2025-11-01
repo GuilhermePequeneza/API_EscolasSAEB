@@ -10,8 +10,8 @@
         "dependencies": {
           "EPPlus": "8.1.0",
           "Microsoft.Data.SqlClient": "6.1.1",
-          "Microsoft.DotNet.ILCompiler": "8.0.19",
-          "Microsoft.NET.ILLink.Tasks": "8.0.19",
+          "Microsoft.DotNet.ILCompiler": "8.0.21",
+          "Microsoft.NET.ILLink.Tasks": "8.0.21",
           "MySql.Data": "9.4.0",
           "Swashbuckle.AspNetCore": "9.0.4"
         },
@@ -227,7 +227,7 @@
           }
         }
       },
-      "Microsoft.DotNet.ILCompiler/8.0.19": {},
+      "Microsoft.DotNet.ILCompiler/8.0.21": {},
       "Microsoft.Extensions.ApiDescription.Server/8.0.0": {},
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
         "dependencies": {
@@ -430,7 +430,7 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/8.0.19": {},
+      "Microsoft.NET.ILLink.Tasks/8.0.21": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.OpenApi/1.6.25": {
@@ -861,12 +861,12 @@
       "path": "microsoft.data.sqlclient.sni.runtime/6.0.2",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512"
     },
-    "Microsoft.DotNet.ILCompiler/8.0.19": {
+    "Microsoft.DotNet.ILCompiler/8.0.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NS8a5mXZzJDU+GvbZbdT75lgvB+s/IZ+7UPi9UOLKnpNqV4w3eDNlCRxa14/iQ6s/UjKAF0+wTrEG/mSbCuwGg==",
-      "path": "microsoft.dotnet.ilcompiler/8.0.19",
-      "hashPath": "microsoft.dotnet.ilcompiler.8.0.19.nupkg.sha512"
+      "sha512": "sha512-K7I0tRjOejpz3SfJMWsDFIev3shM1x7ZSmWq2xlQeWenJUr4Qz/vmppA2GOORQ3l+rovDBL/5AN0ZTMmmMoNXw==",
+      "path": "microsoft.dotnet.ilcompiler/8.0.21",
+      "hashPath": "microsoft.dotnet.ilcompiler.8.0.21.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/8.0.0": {
       "type": "package",
@@ -1029,12 +1029,12 @@
       "path": "microsoft.io.recyclablememorystream/3.0.1",
       "hashPath": "microsoft.io.recyclablememorystream.3.0.1.nupkg.sha512"
     },
-    "Microsoft.NET.ILLink.Tasks/8.0.19": {
+    "Microsoft.NET.ILLink.Tasks/8.0.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IhHf+zeZiaE5EXRyxILd4qM+Hj9cxV3sa8MpzZgeEhpvaG3a1VEGF6UCaPFLO44Kua3JkLKluE0SWVamS50PlA==",
-      "path": "microsoft.net.illink.tasks/8.0.19",
-      "hashPath": "microsoft.net.illink.tasks.8.0.19.nupkg.sha512"
+      "sha512": "sha512-s8H5PZQs50OcNkaB6Si54+v3GWM7vzs6vxFRMlD3aXsbM+aPCtod62gmK0BYWou9diGzmo56j8cIf/PziijDqQ==",
+      "path": "microsoft.net.illink.tasks/8.0.21",
+      "hashPath": "microsoft.net.illink.tasks.8.0.21.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
