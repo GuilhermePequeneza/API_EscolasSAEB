@@ -9,7 +9,7 @@ RUN dotnet restore "IdebAPI.csproj"
 COPY . .
 # O WORKDIR já é /src, onde o .csproj está
 # Certifique-se de que o nome do arquivo .csproj está correto aqui
-RUN dotnet publish "IdebAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "IdebAPI.csproj" -c Release -o /app/publish
 
 # Estágio final (runtime)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
