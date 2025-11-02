@@ -397,7 +397,7 @@ namespace IdebAPI.Models
             {
                 escolas.Add(new EscolaIdeb
                 {
-                    ID = reader.GetInt32("ID"),
+                    Id = reader.GetInt32("ID"),
                     NomeEscola = reader.IsDBNull(reader.GetOrdinal("NomeEscola")) ? string.Empty : reader.GetString("NomeEscola"),
                     Rede = reader.IsDBNull(reader.GetOrdinal("Rede")) ? string.Empty : reader.GetString("Rede"),
                     SiglaUF = reader.GetString("SiglaUF"),

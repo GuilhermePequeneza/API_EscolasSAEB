@@ -51,6 +51,7 @@ namespace IdebAPI.Controllers
                 // Mapear para o DTO de resposta consolidado (limitado a 1000 registros)
                 var escolasResponse = escolas.Take(1000).Select(e => new EscolaIdebResponse
                 {
+                    Id = e.Id,
                     SiglaUF = e.SiglaUF,
                     NomeMunicipio = e.NomeMunicipio,
                     NomeEscola = e.NomeEscola,

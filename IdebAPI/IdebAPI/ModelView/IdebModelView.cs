@@ -24,6 +24,7 @@ namespace IdebAPI.ModelView
     // DTO para dados da escola na resposta (consolidado)
     public class EscolaIdebResponse
     {
+        public int Id { get; set; }
         public string SiglaUF { get; set; } = string.Empty;
         public string NomeMunicipio { get; set; } = string.Empty;
         public string NomeEscola { get; set; } = string.Empty;

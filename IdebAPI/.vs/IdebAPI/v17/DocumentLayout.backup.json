@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\idebdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\idebmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\idebmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\modelview\\idebmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\modelview\\idebmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\controllers\\idebcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,20 +39,8 @@
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\modelview\\cadastromodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastrodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|solutionrelative:idebapi\\models\\cadastromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73173710-95DC-4FB8-A6D3-8FC0DD22D10C}|IdebAPI\\IdebAPI.csproj|d:\\soudaliga\\api_escolassaeb\\idebapi\\idebapi\\controllers\\cadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "IdebAPI\\appsettings.json",
@@ -63,7 +67,19 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-09T21:11:13.521Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IdebModel.cs",
+              "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\IdebModel.cs",
+              "RelativeDocumentMoniker": "IdebAPI\\Models\\IdebModel.cs",
+              "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\IdebModel.cs",
+              "RelativeToolTip": "IdebAPI\\Models\\IdebModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T22:57:54.032Z",
               "EditorCaption": ""
             },
             {
@@ -72,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "IdebAPI\\Properties\\launchSettings.json",
@@ -80,7 +96,8 @@
               "RelativeToolTip": "IdebAPI\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-02T20:32:33.116Z"
+              "WhenOpened": "2025-11-02T20:32:33.116Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -90,14 +107,14 @@
               "RelativeDocumentMoniker": "IdebAPI\\Models\\IdebDAO.cs",
               "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\IdebDAO.cs",
               "RelativeToolTip": "IdebAPI\\Models\\IdebDAO.cs",
-              "ViewState": "AgIAAEkBAAAAAAAAAAAwwFMBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAHcBAAAAAAAAAAAiwIoBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T00:04:56.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Program.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Program.cs",
@@ -110,26 +127,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "IdebController.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Controllers\\IdebController.cs",
               "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Controllers\\IdebController.cs",
               "RelativeToolTip": "IdebAPI\\Controllers\\IdebController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAuwCwAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAswDUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T23:16:53.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "IdebModelView.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
               "RelativeDocumentMoniker": "IdebAPI\\ModelView\\IdebModelView.cs",
               "ToolTip": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\ModelView\\IdebModelView.cs",
               "RelativeToolTip": "IdebAPI\\ModelView\\IdebModelView.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T23:32:26.079Z",
               "EditorCaption": ""
@@ -144,11 +161,12 @@
               "RelativeToolTip": "IdebAPI\\ModelView\\CadastroModelView.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:16.515Z"
+              "WhenOpened": "2025-09-26T00:32:16.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "CadastroModel.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\CadastroModel.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Models\\CadastroModel.cs",
@@ -156,11 +174,12 @@
               "RelativeToolTip": "IdebAPI\\Models\\CadastroModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T00:32:15.197Z"
+              "WhenOpened": "2025-09-26T00:32:15.197Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "CadastroDAO.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Models\\CadastroDAO.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Models\\CadastroDAO.cs",
@@ -172,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CadastroController.cs",
               "DocumentMoniker": "D:\\soudaliga\\API_EscolasSAEB\\IdebAPI\\IdebAPI\\Controllers\\CadastroController.cs",
               "RelativeDocumentMoniker": "IdebAPI\\Controllers\\CadastroController.cs",

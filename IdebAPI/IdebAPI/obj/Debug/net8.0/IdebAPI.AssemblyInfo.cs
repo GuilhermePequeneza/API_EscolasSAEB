@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IdebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6fd3c7f57617cc00b7daab7ea9448cde73add24")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bfafa8df6c163d4b4263c04e54f6030095612ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("IdebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IdebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

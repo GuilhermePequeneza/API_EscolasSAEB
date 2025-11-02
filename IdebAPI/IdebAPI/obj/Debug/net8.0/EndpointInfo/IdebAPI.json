@@ -158,6 +158,10 @@
       "EscolaIdebResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "siglaUF": {
             "type": "string",
             "nullable": true

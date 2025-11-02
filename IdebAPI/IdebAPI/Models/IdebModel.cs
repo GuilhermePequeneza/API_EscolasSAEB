@@ -5,7 +5,7 @@ namespace IdebAPI.Models
     // Modelo para representar os dados da escola
     public class EscolaIdeb
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string SiglaUF { get; set; } = string.Empty;
         public string NomeMunicipio { get; set; } = string.Empty;
         public string NomeEscola { get; set; } = string.Empty;
