@@ -21,8 +21,7 @@ builder.Services.AddCors(options =>
                               "http://localhost:5173" // Para desenvolvimento local do frontend (Vite)
                           )
                                 .AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .AllowCredentials();
+                                .AllowAnyMethod();                                
                       });
 });
 
