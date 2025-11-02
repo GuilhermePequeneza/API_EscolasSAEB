@@ -7,7 +7,7 @@ namespace IdebAPI.Models
     // Interface para o serviço
     public interface IIdebService
     {
-        Task<List<EscolaIdeb>> ProcessarDadosAsync(int modo, string uf = null, string municipio = null, string rede = null, string tipoEnsino = null);
+        Task<List<EscolaIdeb>> ProcessarDadosAsync(int modo, string uf = null, string municipio = null, string rede = null, string tipoEnsino = null, decimal? idebMinimo = null);
     }
 
     // DTO temporário para leitura das planilhas
@@ -82,7 +82,8 @@ namespace IdebAPI.Models
             string uf = null,
             string municipio = null,
             string rede = null,
-            string tipoEnsino = null)
+            string tipoEnsino = null,
+            decimal? idebMinimo = null)
         {
             if (modo == 1)
             {
@@ -91,12 +92,12 @@ namespace IdebAPI.Models
                 var escolasTemp = await LerTodasPlanilhasAsync();
                 await InserirEscolasConsolidadasAsync(escolasTemp);
 
-                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino);
+                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino, idebMinimo);
             }
             else
             {
                 _logger.LogInformation("Modo 0: Consultando dados do banco de dados");
-                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino);
+                return await ConsultarEscolasAsync(uf, municipio, rede, tipoEnsino, idebMinimo);
             }
         }
 
@@ -231,7 +232,7 @@ namespace IdebAPI.Models
                 }
                 _logger.LogInformation("Tabela Escolas limpa com sucesso");
 
-                
+
                 var sql = @"
                     INSERT INTO Escolas (
                         NomeEscola, Rede, SiglaUF, NomeMunicipio,
@@ -334,7 +335,8 @@ namespace IdebAPI.Models
             string uf = null,
             string municipio = null,
             string rede = null,
-            string tipoEnsino = null)
+            string tipoEnsino = null,
+            decimal? idebMinimo = null)
         {
             using var connection = new MySqlConnection(_connectionString);
             await connection.OpenAsync();
@@ -375,6 +377,15 @@ namespace IdebAPI.Models
                     _ => ""
                 };
             }
+
+            
+            sql += @" AND (
+                (SNAnosIniciais = 1 AND IdebAnosIniciais >= @IdebMinimo) OR
+                (SNAnosFinais = 1 AND IdebAnosFinais >= @IdebMinimo) OR
+                (SNEnsinoMedio = 1 AND IdebEnsinoMedio >= @IdebMinimo)
+            )";
+            parametros.Add(new MySqlParameter("@IdebMinimo", idebMinimo.Value));
+            
 
             using var cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddRange(parametros.ToArray());

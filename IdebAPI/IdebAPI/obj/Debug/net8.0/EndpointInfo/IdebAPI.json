@@ -104,6 +104,16 @@
               "maxLength": 50,
               "type": "string"
             }
+          },
+          {
+            "name": "IdebMinimo",
+            "in": "query",
+            "schema": {
+              "maximum": 10,
+              "minimum": 0,
+              "type": "number",
+              "format": "double"
+            }
           }
         ],
         "responses": {

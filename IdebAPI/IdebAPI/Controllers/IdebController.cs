@@ -42,7 +42,8 @@ namespace IdebAPI.Controllers
                     filtros?.UF,
                     filtros?.Municipio,
                     filtros?.Rede,
-                    filtros?.TipoEnsino
+                    filtros?.TipoEnsino,
+                    filtros?.IdebMinimo
                 );
 
                 _logger.LogInformation("Retornando {Count} escolas", escolas.Count);
