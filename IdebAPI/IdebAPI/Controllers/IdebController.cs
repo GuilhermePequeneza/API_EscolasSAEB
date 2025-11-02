@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using IdebAPI.Models;
 using IdebAPI.ModelView;
+using Microsoft.AspNetCore.Cors;
 
 namespace IdebAPI.Controllers
 {
+
     [ApiController]
     [Route("api/[controller]")]
     public class IdebController : ControllerBase

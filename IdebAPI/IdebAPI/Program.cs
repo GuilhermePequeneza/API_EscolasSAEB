@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
                           // e/ou no domínio personalizado 'escolafinder.com', adicione-os aqui.
                           policy.WithOrigins(
                               "https://escolafinder.up.railway.app", // Provável URL do seu FRONTEND
-                              "https://courageous-nurturing-production-xxxx.up.railway.app", // Exemplo, verifique o seu
+                              "https://prolific-delight-production-432f.up.railway.app", // Exemplo, verifique o seu
                               "https://escolafinder.com", // Seu domínio personalizado do FRONTEND
                               "http://localhost:3000", // Para desenvolvimento local do frontend
                               "http://localhost:5173" // Para desenvolvimento local do frontend (Vite)
