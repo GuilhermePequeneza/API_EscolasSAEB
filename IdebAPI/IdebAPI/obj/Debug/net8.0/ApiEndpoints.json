@@ -1,0 +1,85 @@
+[
+  {
+    "ContainingType": "Cadastro.Controllers.CadastroController",
+    "Method": "PostCadastro",
+    "RelativePath": "api/Cadastro/PostCadastro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "informacoes",
+        "Type": "Cadastro.ModelView.InformacaoCadastroRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Cadastro.Controllers.CadastroController",
+    "Method": "PostLogin",
+    "RelativePath": "api/Cadastro/PostLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "informacoes",
+        "Type": "Cadastro.ModelView.InformacaoLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IdebAPI.Controllers.IdebController",
+    "Method": "GetEscolas",
+    "RelativePath": "api/Ideb",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UF",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Municipio",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Rede",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TipoEnsino",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IdebAPI.ModelView.EscolasResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IdebAPI.Controllers.IdebController",
+    "Method": "CarregarPlanilhas",
+    "RelativePath": "api/Ideb/carregar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

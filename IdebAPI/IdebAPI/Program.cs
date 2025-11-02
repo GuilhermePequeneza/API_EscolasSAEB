@@ -29,10 +29,18 @@ builder.Services.AddCors(options =>
 // Certifique-se de que a variável de ambiente está correta,
 // 'mysql-c2ad.railway.internal:3306_ferrovia' parece um nome de variável de ambiente,
 // mas a string de conexão real seria algo como "Server=mysql-c2ad.railway.internal;Port=3306;Database=seu_db;Uid=seu_user;Pwd=sua_senha;"
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL"); // Use um nome mais comum ou o que o Railway define para seu DB
-if (string.IsNullOrEmpty(connectionString))
+var connectionString = Environment.GetEnvironmentVariable("MYSQL_URL");
+
+if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("mysql://"))
 {
-    // Se não estiver no Railway (rodando local), pegue do appsettings.json
+    // Converte de mysql://user:pass@host:port/db para Connection String
+    var uri = new Uri(connectionString);
+    var userInfo = uri.UserInfo.Split(':');
+    connectionString = $"Server={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Uid={userInfo[0]};Pwd={userInfo[1]};SslMode=Preferred;";
+}
+else
+{
+    // Fallback para desenvolvimento local
     connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 }
 

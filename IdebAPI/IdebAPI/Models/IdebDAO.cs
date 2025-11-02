@@ -60,7 +60,20 @@ namespace IdebAPI.Models
         public IdebService(IConfiguration configuration, ILogger<IdebService> logger)
         {
             _basePath = configuration["IdebService:BasePath"] ?? "PlanilhasEscolas";
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            var connStr = Environment.GetEnvironmentVariable("MYSQL_URL");
+            if (!string.IsNullOrEmpty(connStr) && connStr.StartsWith("mysql://"))
+            {
+                var uri = new Uri(connStr);
+                var userInfo = uri.UserInfo.Split(':');
+                _connectionString = $"Server={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Uid={userInfo[0]};Pwd={userInfo[1]};SslMode=Preferred;";
+            }
+            else
+            {
+                _connectionString = configuration.GetConnectionString("DefaultConnection")
+                    ?? throw new InvalidOperationException("Connection string não configurada!");
+
+            }
             _logger = logger;
         }
 

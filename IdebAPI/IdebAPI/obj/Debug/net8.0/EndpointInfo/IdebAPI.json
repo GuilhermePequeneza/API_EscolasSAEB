@@ -1,0 +1,260 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "IdebAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Cadastro/PostCadastro": {
+      "post": {
+        "tags": [
+          "Cadastro"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoCadastroRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoCadastroRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoCadastroRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cadastro/PostLogin": {
+      "post": {
+        "tags": [
+          "Cadastro"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoLoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoLoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InformacaoLoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ideb": {
+      "get": {
+        "tags": [
+          "Ideb"
+        ],
+        "parameters": [
+          {
+            "name": "UF",
+            "in": "query",
+            "schema": {
+              "maxLength": 2,
+              "type": "string"
+            }
+          },
+          {
+            "name": "Municipio",
+            "in": "query",
+            "schema": {
+              "maxLength": 100,
+              "type": "string"
+            }
+          },
+          {
+            "name": "Rede",
+            "in": "query",
+            "schema": {
+              "maxLength": 50,
+              "type": "string"
+            }
+          },
+          {
+            "name": "TipoEnsino",
+            "in": "query",
+            "schema": {
+              "maxLength": 50,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EscolasResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EscolasResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EscolasResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ideb/carregar": {
+      "post": {
+        "tags": [
+          "Ideb"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EscolaIdebResponse": {
+        "type": "object",
+        "properties": {
+          "siglaUF": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeMunicipio": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeEscola": {
+            "type": "string",
+            "nullable": true
+          },
+          "rede": {
+            "type": "string",
+            "nullable": true
+          },
+          "ofereceAnosIniciais": {
+            "type": "boolean"
+          },
+          "ofereceAnosFinais": {
+            "type": "boolean"
+          },
+          "ofereceEnsinoMedio": {
+            "type": "boolean"
+          },
+          "idebAnosIniciais": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "anoReferenciaAnosIniciais": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idebAnosFinais": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "anoReferenciaAnosFinais": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idebEnsinoMedio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "anoReferenciaEnsinoMedio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EscolasResponse": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "escolas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EscolaIdebResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InformacaoCadastroRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InformacaoLoginRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
