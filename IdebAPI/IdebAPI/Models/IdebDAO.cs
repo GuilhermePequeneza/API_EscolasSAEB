@@ -303,17 +303,38 @@ namespace IdebAPI.Models
                     bool isAnosFinais = escolaTemp.TipoEnsino == "Anos Finais";
                     bool isEnsinoMedio = escolaTemp.TipoEnsino == "Ensino Médio";
 
+                    // Anos Iniciais - SEM usar .Value diretamente
                     cmd.Parameters.AddWithValue("@SNAnosIniciais", isAnosIniciais);
-                    cmd.Parameters.AddWithValue("@IdebAnosIniciais", isAnosIniciais && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosIniciais", isAnosIniciais && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@IdebAnosIniciais",
+                        (isAnosIniciais && escolaTemp.Ideb.HasValue)
+                            ? (object)escolaTemp.Ideb.Value
+                            : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosIniciais",
+                        (isAnosIniciais && escolaTemp.AnoReferencia > 0)
+                            ? (object)escolaTemp.AnoReferencia
+                            : DBNull.Value);
 
+                    // Anos Finais
                     cmd.Parameters.AddWithValue("@SNAnosFinais", isAnosFinais);
-                    cmd.Parameters.AddWithValue("@IdebAnosFinais", isAnosFinais && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosFinais", isAnosFinais && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@IdebAnosFinais",
+                        (isAnosFinais && escolaTemp.Ideb.HasValue)
+                            ? (object)escolaTemp.Ideb.Value
+                            : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaAnosFinais",
+                        (isAnosFinais && escolaTemp.AnoReferencia > 0)
+                            ? (object)escolaTemp.AnoReferencia
+                            : DBNull.Value);
 
+                    // Ensino Médio
                     cmd.Parameters.AddWithValue("@SNEnsinoMedio", isEnsinoMedio);
-                    cmd.Parameters.AddWithValue("@IdebEnsinoMedio", isEnsinoMedio && escolaTemp.Ideb.HasValue ? (object)escolaTemp.Ideb.Value : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@AnoReferenciaEnsinoMedio", isEnsinoMedio && escolaTemp.AnoReferencia > 0 ? (object)escolaTemp.AnoReferencia : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@IdebEnsinoMedio",
+                        (isEnsinoMedio && escolaTemp.Ideb.HasValue)
+                            ? (object)escolaTemp.Ideb.Value
+                            : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@AnoReferenciaEnsinoMedio",
+                        (isEnsinoMedio && escolaTemp.AnoReferencia > 0)
+                            ? (object)escolaTemp.AnoReferencia
+                            : DBNull.Value);
 
                     await cmd.ExecuteNonQueryAsync();
                     totalProcessado++;
@@ -378,14 +399,15 @@ namespace IdebAPI.Models
                 };
             }
 
-            
-            sql += @" AND (
-                (SNAnosIniciais = 1 AND IdebAnosIniciais >= @IdebMinimo) OR
-                (SNAnosFinais = 1 AND IdebAnosFinais >= @IdebMinimo) OR
-                (SNEnsinoMedio = 1 AND IdebEnsinoMedio >= @IdebMinimo)
-            )";
-            parametros.Add(new MySqlParameter("@IdebMinimo", idebMinimo.Value));
-            
+            if (idebMinimo.HasValue)
+            {
+                sql += @" AND (
+                        (SNAnosIniciais = 1 AND IdebAnosIniciais >= @IdebMinimo) OR
+                        (SNAnosFinais = 1 AND IdebAnosFinais >= @IdebMinimo) OR
+                        (SNEnsinoMedio = 1 AND IdebEnsinoMedio >= @IdebMinimo))";
+                parametros.Add(new MySqlParameter("@IdebMinimo", idebMinimo.Value));
+            }
+
 
             using var cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddRange(parametros.ToArray());
